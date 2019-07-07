@@ -1,39 +1,23 @@
 <html>
-<head>
-<title>
-POS
-</title>
-<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<!--sa poip up-->
-<script src="argiepolicarpio.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="lib/jquery.js" type="text/javascript"></script>
-<script src="src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : 'src/loading.gif',
-      closeImage   : 'src/closelabel.png'
-    })
-  })
-</script>
-</head>
+<?php include('head.php'); ?>
 <body>
 <div id="maintable"><div style="margin-top: -19px; margin-bottom: 21px;">
 <a id="addd" href="index.php" style="float: none;">Back</a>
 </div>
-<input type="text" name="filter" value="" id="filter" placeholder="Search Product..." autocomplete="off" /><a rel="facebox" id="addd" href="addproduct.php">Add Product</a><br><br>
-<table id="resultTable" data-responsive="table">
+<input type="text" name="filter" value="" id="filter" placeholder="Search Product..." autocomplete="off" /><a rel="facebox" id="addd" href="Forms/productForm.php">Add Product</a><br><br>
+<table id="resultTable" data-responsive="table" class="table table-hover table-bordered">
 	<thead>
 		<tr>
-			<th> Code </th>
-			<th> Name </th>
-			<th> Cost </th>
-			<th> Price </th>
-			<th> Supplier </th>
-			<th> Qty </th>
-			<th> Action </th>
+			<th scope="col"> Code </th>
+			<th scope="col"> Name </th>
+			<th scope="col"> Cost </th>
+			<th scope="col"> Price </th>
+			<th scope="col"> Supplier </th>
+			<th scope="col"> Qty </th>
+			<th scope="col">Size</th>
+			<th scope="col">Color</th>
+			<th scope="col">Category</th>
+			<th scope="col"> Action </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -71,6 +55,9 @@ POS
 			?></td>
 			<td><?php echo $row['supplier']; ?></td>
 			<td><?php echo $row['qty']; ?></td>
+			<td><?php echo $row['size'] ?></td>
+			<td><?php echo $row['color'] ?></td>
+			<td><?php echo $row['category'] ?></td>
 			<td><a rel="facebox" href="editproduct.php?id=<?php echo $row['product_id']; ?>"> Edit </a> | <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
 			</tr>
 			<?php

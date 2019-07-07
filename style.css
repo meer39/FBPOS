@@ -55,7 +55,7 @@ input {
 }
 #maintable {
 	margin: 50px auto;
-	width: 800px;
+	width: 80%;
 }
 #filter {
 	width: 70%;
@@ -92,7 +92,7 @@ input {
 .clearfix {
 	clear: both;
 }
-#resultTable {
+/* #resultTable {
     border-collapse: separate;
 	background-color: #FFFFFF;
     border-spacing: 0;
@@ -121,7 +121,7 @@ input {
     text-align: left;
 	padding: 10px 14px;
 	border-top: 1px solid #999999;
-}
+} */
 #mainmain {
 	margin: 50px auto;
 	text-align: center;
