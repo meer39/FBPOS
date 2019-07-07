@@ -4,7 +4,7 @@
 <div id="maintable"><div style="margin-top: -19px; margin-bottom: 21px;">
 <a id="addd" href="index.php" style="float: none;">Back</a>
 </div>
-<input type="text" name="filter" value="" id="filter" placeholder="Search Product..." autocomplete="off" /><a rel="facebox" id="addd" href="Forms/productForm.php">Add Product</a><br><br>
+<input type="text" name="filter" value="" id="filter" placeholder="Search Product..." autocomplete="off" /><a rel="facebox" id="addd" href="Forms/addProductForm.php">Add Product</a><br><br>
 <table id="resultTable" data-responsive="table" class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -58,7 +58,7 @@
 			<td><?php echo $row['size'] ?></td>
 			<td><?php echo $row['color'] ?></td>
 			<td><?php echo $row['category'] ?></td>
-			<td><a rel="facebox" href="editproduct.php?id=<?php echo $row['product_id']; ?>"> Edit </a> | <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
+			<td><a rel="facebox" href="Forms/editProductForm.php?id=<?php echo $row['product_id']; ?>"> Edit </a> | <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
 			</tr>
 			<?php
 				}
@@ -88,7 +88,7 @@ var info = 'id=' + del_id;
 
  $.ajax({
    type: "GET",
-   url: "deleteproduct.php",
+   url: "ProductDAO/deleteProduct.php",
    data: info,
    success: function(){
    
