@@ -5,6 +5,9 @@
 <span>Product Name : </span><input type="text" name="name" /><br>
 <span>Cost : </span><input type="text" name="cost" /><br>
 <span>Price : </span><input type="text" name="price" /><br>
+<span>size :</span><input type="text" name="size"/><br>
+<span>color :</span><input type="text" name="color"/><br>
+<span>Category :</span><input type="text" name="category"/><br>
 <span>Supplier : </span>
 <select name="supplier">
 	<?php
