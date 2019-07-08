@@ -10,7 +10,7 @@ $result = $db->prepare("SELECT * FROM products WHERE product_code= :userid");
 $result->bindParam(':userid', $b);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
-$asasa=$row['price'];
+$price=$row['price'];
 $name=$row['product_name'];
 }
 
@@ -20,12 +20,12 @@ $sql = "UPDATE products
 		WHERE product_code=?";
 $q = $db->prepare($sql);
 $q->execute(array($c,$b));
-$fffffff=$asasa-$discount;
-$d=$fffffff*$c;
+$priceAfterDiscount=$price-$discount;
+$d=$priceAfterDiscount*$c;
 // query
 $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount) VALUES (:a,:b,:c,:d,:e,:f,:g)";
 $q = $db->prepare($sql);
-$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount));
+$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$price,':g'=>$discount));
 header("location: sales.php?id=$w&invoice=$a");
 
 

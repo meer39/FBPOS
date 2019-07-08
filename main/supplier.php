@@ -1,35 +1,16 @@
 <html>
-<head>
-<title>
-POS
-</title>
-<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<!--sa poip up-->
-<script src="argiepolicarpio.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="lib/jquery.js" type="text/javascript"></script>
-<script src="src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : 'src/loading.gif',
-      closeImage   : 'src/closelabel.png'
-    })
-  })
-</script>
-</head>
+<?php include('head.php'); ?>
 <body>
 <div id="maintable">
 <div style="margin-top: -19px; margin-bottom: 21px;">
-<a id="addd" href="index.php" style="float: none;">Back</a>
+<a href="index.php" class="btn btn-danger">Back</a>
 </div>
-<input type="text" name="filter" value="" id="filter" placeholder="Search Supplier..." autocomplete="off" /><a rel="facebox" id="addd" href="addsupplier.php">Add Supplier</a><br><br>
-<table id="resultTable" data-responsive="table">
+<input type="text" name="filter" value="" id="filter" class="form-control" placeholder="Search Supplier..." autocomplete="off" autofocus />
+<a rel="facebox" href="Forms/addSupplierForm.php" class="btn btn-success float-right">Add Supplier</a>
+<table id="resultTable" data-responsive="table" class="table table-hover">
 	<thead>
 		<tr>
 			<th> Supplier </th>
-			<th> Contact Person </th>
 			<th> Address </th>
 			<th> Contact </th>
 			<th> Action </th>
@@ -45,10 +26,9 @@ POS
 			?>
 			<tr class="record">
 			<td><?php echo $row['suplier_name']; ?></td>
-			<td><?php echo $row['contact_person']; ?></td>
 			<td><?php echo $row['suplier_address']; ?></td>
 			<td><?php echo $row['suplier_contact']; ?></td>
-			<td><a rel="facebox" href="editsupplier.php?id=<?php echo $row['suplier_id']; ?>"> Edit </a> | <a href="#" id="<?php echo $row['suplier_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
+			<td><a rel="facebox" href="SupplierDAO/editSupplier.php?id=<?php echo $row['suplier_id']; ?>"> Edit </a> | <a href="#" id="<?php echo $row['suplier_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
 			</tr>
 			<?php
 				}
@@ -78,7 +58,7 @@ var info = 'id=' + del_id;
 
  $.ajax({
    type: "GET",
-   url: "deletesupplier.php",
+   url: "SupplierDAO/deleteSupplier.php",
    data: info,
    success: function(){
    
