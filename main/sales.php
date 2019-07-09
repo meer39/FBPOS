@@ -2,6 +2,8 @@
 	<?php 
 		require_once('auth.php');
 		include('head.php');
+		include('../connect.php');
+
 	?>
 	<body>
 		<div id="maintable">
@@ -12,20 +14,7 @@
 				<input type="hidden" name="pt" value="<?php echo $_GET['id']; ?>" />
 				<input type="hidden" name="invoice" value="<?php echo $_GET['invoice']; ?>" />
 				<div class="form-group row">
-					<div class="col-sm-8">						
-						<!-- <select name="product" class="form-control">
-							<?php
-							include('../connect.php');
-							$result = $db->prepare("SELECT * FROM products");
-								$result->bindParam(':userid', $res);
-								$result->execute();
-								for($i=0; $row = $result->fetch(); $i++){
-							?>
-								<option value="<?php echo $row['product_code']; ?>"><?php echo $row['product_code']; ?> - <?php echo $row['product_name']; ?> - <?php echo $row['size']; ?></option>
-							<?php
-							}
-							?>
-						</select>-->
+					<div class="col-sm-8">
 						<input type="text" name="product" class="form-control" placeholder="Product ID" autofocus>
 					</div>
 					<div class="col-sm-1">					
@@ -44,6 +33,7 @@
 					</div>
 				</div>				
 			</form>
+			
 			<table id="resultTable" data-responsive="table" class="table table-hover table-bordered">
 				<thead>
 					<tr>
@@ -59,10 +49,10 @@
 				<tbody>
 					
 					<?php
-						$id=$_GET['invoice'];
+						$invoice=$_GET['invoice'];
 						include('../connect.php');
 						$result = $db->prepare("SELECT * FROM sales_order WHERE invoice= :userid");
-						$result->bindParam(':userid', $id);
+						$result->bindParam(':userid', $invoice);
 						$result->execute();
 						for($i=0; $row = $result->fetch(); $i++){
 					?>

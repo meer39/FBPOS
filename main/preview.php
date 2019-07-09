@@ -195,20 +195,20 @@ $amount=$cash-$am;
 					</strong></td>
 					<td colspan="2"><strong style="font-size: 12px; color: #222222;">
 					<?php
-					function formatMoney($number, $fractional=false) {
-						if ($fractional) {
-							$number = sprintf('%.2f', $number);
-						}
-						while (true) {
-							$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
-							if ($replaced != $number) {
-								$number = $replaced;
-							} else {
-								break;
-							}
-						}
-						return $number;
-					}
+					//function formatMoney($number, $fractional=false) {
+					// 	if ($fractional) {
+					// 		$number = sprintf('%.2f', $number);
+					// 	}
+					// 	while (true) {
+					// 		$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+					// 		if ($replaced != $number) {
+					// 			$number = $replaced;
+					// 		} else {
+					// 			break;
+					// 		}
+					// 	}
+					// 	return $number;
+					// }
 					if($pt=='credit'){
 					echo $cash;
 					}
@@ -243,74 +243,115 @@ $amount=$cash-$am;
       <div class="info">
         <h2>Contact Info</h2>
         <p> 
-            Address : Satellite Town, Green Center, Gujranwala </br>
-            Email   : support@abidingtech.com</br>
-            Phone   : 03064798395</br>
+            Address : Satellite Town, Green Center, Gujranwala <br>
+            Email   : support@abidingtech.com<br>
+            Phone   : 03064798395<br>
         </p>
-      </div>
+	  </div>
+	  <hr>
+		<table border="0px">
+			<tr>
+				<td>
+					<span style="font-size: .5em;"><?php echo $invoice; ?></span>
+				</td>
+				<td align="right">
+					<span style="font-size: .5em;"><?php echo date("d/m/Y"); ?></span>
+				</td>
+			</tr>
+		</table>
+	  <hr>
     </div><!--End Invoice Mid-->
     
     <div id="bot">
 
-					<div id="table">
-						<table>
-							<tr class="tabletitle" style="background-color: #EEE;">
-								<td class="item" style="font-size: .5em;"><h2>Item</h2></td>
-								<td class="Hours" style="font-size: .5em;"><h2>Qty</h2></td>
-								<td class="Rate" style="font-size: .5em;"><h2>Sub Total</h2></td>
-							</tr>
+		<div id="table">
+			<table>
+				<tr class="tabletitle" style="background-color: #EEE;">
+					<td class="item" style="font-size: .5em; width: 50mm;"><h2>Item</h2></td>
+					<td class="Hours" style="font-size: .5em;"><h2>Qty</h2></td>
+					<td class="Rate" style="font-size: .5em;"><h2>Sub Total</h2></td>
+				</tr>
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Communication</p></td>
-								<td class="tableitem"><p class="itemtext">5</p></td>
-								<td class="tableitem"><p class="itemtext">375.00</p></td>
-							</tr>
+				<?php
+					$id=$_GET['invoice'];
+					$result = $db->prepare("SELECT * FROM sales_order WHERE invoice= :userid");
+					$result->bindParam(':userid', $id);
+					$result->execute();
+					$productPrice = 0;
+					for($i=0; $row = $result->fetch(); $i++){
+				?>
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Asset Gathering</p></td>
-								<td class="tableitem"><p class="itemtext">3</p></td>
-								<td class="tableitem"><p class="itemtext">225.00</p></td>
-							</tr>
+				<tr class="service">
+					<td class="tableitem"><p class="itemtext"><?php echo $row['name'] ?></p></td>
+					<td class="tableitem"><p class="itemtext"><?php echo $row['qty'] ?></p></td>
+					<td class="tableitem"><p class="itemtext"><?php	echo $row['price']*$row['qty']; ?></p></td>
+					<?php  $productPrice = $productPrice + ($row['price']*$row['qty']); ?>
+				</tr>
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Design Development</p></td>
-								<td class="tableitem"><p class="itemtext">5</p></td>
-								<td class="tableitem"><p class="itemtext">375.00</p></td>
-							</tr>
+				<?php } ?>
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Animation</p></td>
-								<td class="tableitem"><p class="itemtext">20</p></td>
-								<td class="tableitem"><p class="itemtext">1500.00</p></td>
-							</tr>
+				<tr class="tabletitle" style="background-color: #EEE;">
+					<td></td>
+					<td class="Rate" style="font-size: .5em;"><h2>Total</h2></td>
+					<td class="payment" style="font-size: .5em;"><h2><?php echo $productPrice; ?></h2></td>
+				</tr>
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Animation Revisions</p></td>
-								<td class="tableitem"><p class="itemtext">10</p></td>
-								<td class="tableitem"><p class="itemtext">750.00</p></td>
-							</tr>
+				<tr class="tabletitle" style="background-color: #EEE;">
+					<td></td>
+					<td class="Rate" style="font-size: .5em;"><h2>Discount</h2></td>
+					<?php
+						$discount = $db->prepare("SELECT discount FROM discount");
+						$discount->execute();
+						$discount = $discount->fetch();
+					?>
+					<td class="payment" style="font-size: .5em;"><h2><?php echo formatMoney($discount['discount'], true) ?></h2></td>
+				</tr>
+				<tr class="tabletitle" style="background-color: #EEE;">
+					<td></td>
+					<td class="Rate" style="font-size: .5em;"><h2>Price</h2></td>
+					<?php $productPrice = $productPrice - ($productPrice * $discount['discount'] / 100) ?>
+					<td class="payment" style="font-size: .5em;"><h2><?php echo formatMoney($productPrice, true) ?></h2></td>
+				</tr>
+				<tr class="tabletitle" style="background-color: #EEE;">
+					<td></td>
+					<td class="Rate" style="font-size: .5em;"><h2>Cash Tendered</h2></td>
+					<td class="payment" style="font-size: .5em;"><h2><?php echo formatMoney($cash, true); ?></h2></td>
+				</tr>
+				<tr class="tabletitle" style="background-color: #EEE;">
+					<td></td>
+					<td class="Rate" style="font-size: .5em;"><h2><?php if($pt=='cash'){echo 'Change';} if($pt=='credit'){echo 'Due Date';}?></h2></td>
+					<td class="payment" style="font-size: .5em;"><h2><?php
+					function formatMoney($number, $fractional=false) {
+						if ($fractional) {
+							$number = sprintf('%.2f', $number);
+						}
+						while (true) {
+							$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+							if ($replaced != $number) {
+								$number = $replaced;
+							} else {
+								break;
+							}
+						}
+						return $number;
+					}
+					if($pt=='credit'){
+					echo $cash;
+					}
+					if($pt=='cash'){
+					echo formatMoney($amount, true);
+					}
+					?></h2></td>
+				</tr>
 
+			</table>
+		</div><!--End Table-->
 
-							<tr class="tabletitle" style="background-color: #EEE;">
-								<td></td>
-								<td class="Rate" style="font-size: .5em;"><h2>tax</h2></td>
-								<td class="payment" style="font-size: .5em;"><h2>419.25</h2></td>
-							</tr>
+		<div id="legalcopy">
+			<p class="legal"><strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
+			</p>
+		</div>
 
-							<tr class="tabletitle" style="background-color: #EEE;">
-								<td></td>
-								<td class="Rate" style="font-size: .5em;"><h2>Total</h2></td>
-								<td class="payment" style="font-size: .5em;"><h2>3,644.25</h2></td>
-							</tr>
-
-						</table>
-					</div><!--End Table-->
-
-					<div id="legalcopy">
-						<p class="legal"><strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
-						</p>
-					</div>
-
-				</div><!--End InvoiceBot-->
+	</div><!--End InvoiceBot-->
   </div><!--End Invoice-->
 

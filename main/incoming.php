@@ -5,14 +5,12 @@ include('../connect.php');
 $a = $_POST['invoice'];
 $w = $_POST['pt'];
 
-$chk = $db->prepare("SELECT product_code FROM products where product_code = :product");
+$chk = $db->prepare("SELECT product_code, qty FROM products where product_code = :product");
 $chk->bindParam(':product', $_POST['product']);
 $chk->execute();
 $newChk = $chk->fetch();
 
-// echo $newChk['product_code'];
-
-if($newChk['product_code'] == $_POST['product'])
+if($newChk['product_code'] == $_POST['product'] && !$newChk['qty'] < 1)
 {
     $b = $_POST['product'];
     $c = $_POST['qty'];
@@ -31,7 +29,7 @@ if($newChk['product_code'] == $_POST['product'])
     		WHERE product_code=?";
     $q = $db->prepare($sql);
     $q->execute(array($c,$b));
-    $priceAfterDiscount=$price-$discount;
+    $priceAfterDiscount=$price - ($price*$discount/100);
     $d=$priceAfterDiscount*$c;
     // query
     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount) VALUES (:a,:b,:c,:d,:e,:f,:g)";

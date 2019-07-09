@@ -1,10 +1,9 @@
 <html>
-<head>
+<!-- <head>
 <title>
 POS
 </title>
 <link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<!--sa poip up-->
 <script src="argiepolicarpio.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/application.js" type="text/javascript" charset="utf-8"></script>
 <link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
@@ -18,12 +17,13 @@ POS
     })
   })
 </script>
-</head>
+</head> -->
+<?php include('head.php'); ?>
 <body>
 <div id="maintable">
-<div style="margin-top: -19px; margin-bottom: 21px;">
-<a id="addd" href="index.php" style="float: none;">Back</a>
-</div>
+	<div style="margin-top: -19px; margin-bottom: 21px;">
+		<a class="btn btn-danger" href="index.php" style="float: none;">Back</a>
+	</div>
 <?php
 include('../connect.php');
 $tftft=$_GET['cname'];
@@ -43,7 +43,7 @@ echo 'Address : '.$rowas['address'].'<br>';
 echo 'Contact : '.$rowas['contact'].'<br>';
 }
 ?>
-<table id="resultTable" data-responsive="table">
+<table id="resultTable" class="table table-hover">
 	<thead>
 		<tr>
 			<th> Transaction ID </th>
@@ -84,7 +84,7 @@ echo 'Contact : '.$rowas['contact'].'<br>';
 		
 	</tbody>
 </table>
-<a rel="facebox" id="addd" href="addledger.php?invoice=<?php echo $_GET['cname']; ?>&amount=<?php echo $amount; ?>" style="margin-top: 10px;">Add Payment</a><br><br>
+<a rel="facebox" class="btn btn-primary float-right" href="addledger.php?invoice=<?php echo $_GET['cname']; ?>&amount=<?php echo $amount; ?>" style="margin-top: 10px;">Add Payment</a><br><br>
 <div class="clearfix"></div>
 </div>
 </body>
