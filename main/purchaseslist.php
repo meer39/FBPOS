@@ -1,31 +1,12 @@
 <html>
-<head>
-<title>
-POS
-</title>
-<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<!--sa poip up-->
-<script src="argiepolicarpio.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="lib/jquery.js" type="text/javascript"></script>
-<script src="src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : 'src/loading.gif',
-      closeImage   : 'src/closelabel.png'
-    })
-  })
-</script>
-</head>
+<?php include('head.php'); ?>
 <body>
 <div id="maintable">
 <div style="margin-top: -19px; margin-bottom: 21px;">
-<a id="addd" href="index.php" style="float: none;">Back</a>
-</div>
-<input type="text" name="filter" value="" id="filter" placeholder="Search Customer..." autocomplete="off" /><a rel="facebox" id="addd" href="purchases.php">Add Purchases</a><br><br>
-<table id="resultTable" data-responsive="table">
+				<a class="btn btn-danger" href="index.php" style="float: none;">Back</a>
+			</div>
+<input type="text" name="filter" value="" id="filter" placeholder="Search Customer..." autocomplete="off" /><a rel="facebox" class="btn btn-success float-right" href="Forms/addPurchasesForm.php">Add Purchases</a><br><br>
+<table id="resultTable" class="table table-hover">
 	<thead>
 		<tr>
 			<th width="5%"> Invoice Number </th>
@@ -78,7 +59,7 @@ var info = 'id=' + del_id;
 
  $.ajax({
    type: "GET",
-   url: "deletepppp.php",
+   url: "PurchaseDAO/deletePurchase.php",
    data: info,
    success: function(){
    

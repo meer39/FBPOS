@@ -1,12 +1,6 @@
 <html>
-<head>
-<title>
-POS
-</title>
-<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="tcal.css" />
-<script type="text/javascript" src="tcal.js"></script>
-<script language="javascript">
+<?php include('head.php') ?>
+<!-- <script language="javascript">
 function Clickheretoprint()
 { 
   var disp_setting="toolbar=yes,location=no,directories=yes,menubar=yes,"; 
@@ -20,21 +14,23 @@ function Clickheretoprint()
    docprint.document.close(); 
    docprint.focus(); 
 }
-</script>
-</head>
+</script> -->
 <body>
 <div id="maintable">
-<div style="margin-top: -19px; margin-bottom: 21px;">
-<a id="addd" href="index.php" style="float: none;">Back</a>
-</div>
+	<div style="margin-top: -19px; margin-bottom: 21px;">
+		<a class="btn btn-danger" href="index.php" style="float: none;">Back</a>
+	</div>
 <form action="accountreceivables.php" method="get">
-From : <input type="text" name="d1" class="tcal" value="" /> To: <input type="text" name="d2" class="tcal" value="" /> <input type="submit" value="Search"><a id="addd" href="javascript:Clickheretoprint()">Print</a>
+	From : <input type="text" name="d1" class="tcal" value="" /> 
+	To: <input type="text" name="d2" class="tcal" value="" /> 
+	<input type="submit" value="Search" class="btn btn-success">
+	<a href="javascript:Clickheretoprint()" class="btn btn-primary float-right">Print</a>
 </form>
 <div class="content" id="content">
 <div style="font-weight:bold; text-align:center;font-size:14px;margin-bottom: 15px;">
 Accounts Receivables Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['d2'] ?>
 </div>
-<table id="resultTable" data-responsive="table" style="text-align: left;">
+<table id="resultTable" class="table table-hover">
 	<thead>
 		<tr>
 			<th width="17%"> Transaction ID </th>

@@ -348,7 +348,7 @@ $amount=$cash-$am;
 		</div><!--End Table-->
 
 		<div id="legalcopy">
-			<p class="legal"><strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
+			<p class="legal"><strong>Hope you will satisfy and Thank you for being fb relaible customer.</strong> <br>Keeping for new and update designe and verity and in 0308-7900781 and our fb page. 
 			</p>
 		</div>
 

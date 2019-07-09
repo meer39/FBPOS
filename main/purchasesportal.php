@@ -1,24 +1,8 @@
+<html>
 <?php
 	require_once('auth.php');
+	include('head.php');
 ?>
-<html>
-<head>
-<title>
-POS
-</title>
-<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<!--sa poip up-->
-<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="lib/jquery.js" type="text/javascript"></script>
-<script src="src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : 'src/loading.gif',
-      closeImage   : 'src/closelabel.png'
-    })
-  })
-</script>
 <script language="javascript">
 function Clickheretoprint()
 { 
@@ -38,22 +22,32 @@ function Clickheretoprint()
 <body>
 <div id="maintable">
 <form action="savepurchasesitem.php" method="post" >
-<input type="hidden" name="invoice" value="<?php echo $_GET['iv']; ?>" />
-<select name="product" style="width: 600px;">
-	<?php
-	include('../connect.php');
-	$result = $db->prepare("SELECT * FROM products");
-		$result->bindParam(':userid', $res);
-		$result->execute();
-		for($i=0; $row = $result->fetch(); $i++){
-	?>
-		<option value="<?php echo $row['product_code']; ?>"><?php echo $row['product_code']; ?> - <?php echo $row['product_name']; ?></option>
-	<?php
-	}
-	?>
-</select>
-<input type="text" name="qty" value="" placeholder="Qty" autocomplete="off" style="width: 68px; padding-top: 6px; padding-bottom: 6px; margin-right: 4px;" /><input type="submit" value="save" style="width: 123px;" />
+	<input type="hidden" name="invoice" value="<?php echo $_GET['iv']; ?>" />
+	<div class="form-group row">
+		<div class="col-sm-8">
+			<select name="product" style="width: 600px;" class="form-control">
+				<?php
+				include('../connect.php');
+				$result = $db->prepare("SELECT * FROM products");
+					$result->bindParam(':userid', $res);
+					$result->execute();
+					for($i=0; $row = $result->fetch(); $i++){
+				?>
+					<option value="<?php echo $row['product_code']; ?>"><?php echo $row['product_code']; ?> - <?php echo $row['product_name']; ?> - <?php echo $row['size'] ?> - <?php echo $row['color'] ?></option>
+				<?php
+				}
+				?>
+			</select>
+		</div>
+		<div class="col-sm-2">
+			<input type="text" name="qty" value="" placeholder="Qty" autocomplete="off" class="form-control"/>
+		</div>
+		<div class="col-sm-2">
+			<input type="submit" value="save" style="width: 123px;" class="btn btn-success"/>
+		</div>	
+	</div>
 </form>
+
 <div class="content" id="content">
 <div>
 <?php
@@ -71,7 +65,7 @@ echo 'Remarks : '.$rowaz['remarks'].'<br>';
 }
 ?>
 </div>
-<table id="resultTable" data-responsive="table" style="text-align: left;">
+<table id="resultTable" class="table table-hover">
 	<thead>
 		<tr>
 			<th width="5%"> Name </th>
@@ -143,7 +137,7 @@ echo 'Remarks : '.$rowaz['remarks'].'<br>';
 		
 	</tbody>
 </table></div><br>
-<a id="cccc" href="index.php" style="margin-right: 10px;">Back</a><a id="cccc" href="javascript:Clickheretoprint()">Print</a>
+<a href="index.php" class="btn btn-danger">Back</a><a class="btn btn-primary btn-lg float-right" href="javascript:Clickheretoprint()">Print</a>
 <div class="clearfix"></div>
 </div>
 </body>

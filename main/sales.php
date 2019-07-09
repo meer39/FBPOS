@@ -10,7 +10,7 @@
 			<div style="margin-top: -19px; margin-bottom: 21px;">
 				<a class="btn btn-danger" href="index.php" style="float: none;">Back</a>
 			</div>
-			<form action="incoming.php" method="post" >
+			<form action="incoming.php" method="post" onkeydown="return event.key != 'Enter';">
 				<input type="hidden" name="pt" value="<?php echo $_GET['id']; ?>" />
 				<input type="hidden" name="invoice" value="<?php echo $_GET['invoice']; ?>" />
 				<div class="form-group row">

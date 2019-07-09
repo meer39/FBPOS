@@ -50,14 +50,14 @@ if($position=='admin') {
 ?>
 <a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Cash</a>
 <a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>">Credit</a>
-<a href="purchaseslist.php">Purchases</a>
-<a href="salesreport.php?d1=0&d2=0">Sales Report</a>
-<a rel="facebox" href="select_customer.php">Customer Ledger</a>
 <a href="products.php">Products</a>
+<a href="purchaseslist.php">Purchases</a>
 <a href="customer.php">Customers</a>
 <a href="supplier.php">Suppliers</a>
+<a href="salesreport.php?d1=0&d2=0">Sales Report</a>
 <a href="accountreceivables.php?d1=0&d2=0">Accounts Receivable Report</a>
 <a href="collection.php?d1=0&d2=0">Collection Report</a>
+<a rel="facebox" href="select_customer.php">Customer Ledger</a>
 <a href="../index.php">Logout</a>
 <?php
 }
