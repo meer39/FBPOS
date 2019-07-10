@@ -6,7 +6,7 @@
 	$result->execute();
 	for($i=0; $row = $result->fetch(); $i++){
 ?>
-<form action="ProductDAO/saveEditProduct.php" method="post">
+<form action="ProductDAO/saveEditProduct.php" method="post" class="mt-3">
 	<div id="ac">
         <input type="hidden" name="memi" value="<?php echo $id; ?>" />
 		<div class="form-group">

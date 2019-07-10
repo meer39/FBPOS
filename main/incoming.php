@@ -4,16 +4,16 @@ include('../connect.php');
 
 $a = $_POST['invoice'];
 $w = $_POST['pt'];
+$c = $_POST['qty'];
 
 $chk = $db->prepare("SELECT product_code, qty FROM products where product_code = :product");
 $chk->bindParam(':product', $_POST['product']);
 $chk->execute();
 $newChk = $chk->fetch();
 
-if($newChk['product_code'] == $_POST['product'] && !$newChk['qty'] < 1)
+if($newChk['product_code'] == $_POST['product'] && $newChk['qty'] >= $c)
 {
     $b = $_POST['product'];
-    $c = $_POST['qty'];
     $discount = $_POST['discount'];
     $result = $db->prepare("SELECT * FROM products WHERE product_code= :userid");
     $result->bindParam(':userid', $b);

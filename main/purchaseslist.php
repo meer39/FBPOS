@@ -5,7 +5,7 @@
 <div style="margin-top: -19px; margin-bottom: 21px;">
 				<a class="btn btn-danger" href="index.php" style="float: none;">Back</a>
 			</div>
-<input type="text" name="filter" value="" id="filter" placeholder="Search Customer..." autocomplete="off" /><a rel="facebox" class="btn btn-success float-right" href="Forms/addPurchasesForm.php">Add Purchases</a><br><br>
+<input type="text" name="filter" value="" id="filter" placeholder="Search Supplier..." autocomplete="off" /><a rel="facebox" class="btn btn-success float-right" href="Forms/addPurchasesForm.php">Add Purchases</a><br><br>
 <table id="resultTable" class="table table-hover">
 	<thead>
 		<tr>

@@ -26,6 +26,7 @@ for($i=0; $row = $result->fetch(); $i++){
 $cname=$row['name'];
 $invoice=$row['invoice_number'];
 $date=$row['date'];
+// $cash = 0;
 $cash=$row['due_date'];
 $cashier=$row['cashier'];
 
@@ -230,44 +231,31 @@ $amount=$cash-$am;
 
 <div id="invoice-POS">
     
-    <center id="top">
+    <center id="top" style="margin: 10px;">
       <div class="logo">
-		  <img src="../logo.png" alt="logo" width="60px" height="60px"/>
+		  <img src="../logo.png" alt="logo" width="100px" height="60px"/>
 	  </div>
-      <div class="info"> 
-        <h2>Abiding Tech</h2>
-      </div><!--End Info-->
     </center><!--End InvoiceTop-->
     
     <div id="mid">
       <div class="info">
-        <h2>Contact Info</h2>
         <p> 
-            Address : Satellite Town, Green Center, Gujranwala <br>
-            Email   : support@abidingtech.com<br>
-            Phone   : 03064798395<br>
+            College Road Opposite Noor Masjid, Daska
+            03064798395<br>
         </p>
 	  </div>
-	  <hr>
-		<table border="0px">
-			<tr>
-				<td>
-					<span style="font-size: .5em;"><?php echo $invoice; ?></span>
-				</td>
-				<td align="right">
-					<span style="font-size: .5em;"><?php echo date("d/m/Y"); ?></span>
-				</td>
-			</tr>
-		</table>
-	  <hr>
+		<div style="font-size: 1em; text-align: center; margin-bottom:5px;"><?php echo date("d/m/Y"); ?> - <?php echo date("h:i:a"); ?></div>
+		<span style="font-size: 1em;"><strong>Receipt No. </strong><?php echo $invoice; ?></span>
+		<hr style="margin:0px;">	  
     </div><!--End Invoice Mid-->
     
     <div id="bot">
 
 		<div id="table">
-			<table>
+			<table width="100%">
+			
 				<tr class="tabletitle" style="background-color: #EEE;">
-					<td class="item" style="font-size: .5em; width: 50mm;"><h2>Item</h2></td>
+					<td class="item" style="font-size: .5em; width: 40mm;"><h2>Item</h2></td>
 					<td class="Hours" style="font-size: .5em;"><h2>Qty</h2></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Sub Total</h2></td>
 				</tr>
@@ -278,18 +266,25 @@ $amount=$cash-$am;
 					$result->bindParam(':userid', $id);
 					$result->execute();
 					$productPrice = 0;
+					$qty = 0;
 					for($i=0; $row = $result->fetch(); $i++){
 				?>
 
 				<tr class="service">
-					<td class="tableitem"><p class="itemtext"><?php echo $row['name'] ?></p></td>
-					<td class="tableitem"><p class="itemtext"><?php echo $row['qty'] ?></p></td>
-					<td class="tableitem"><p class="itemtext"><?php	echo $row['price']*$row['qty']; ?></p></td>
-					<?php  $productPrice = $productPrice + ($row['price']*$row['qty']); ?>
+					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php echo $row['name'] ?></p></td>
+					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php echo $row['qty'] ?></p></td>
+					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php	echo $row['price']*$row['qty']; ?></p></td>
+					<?php  $productPrice = $productPrice + ($row['price']*$row['qty']); $qty += $row['qty'] ?>
 				</tr>
 
 				<?php } ?>
+				</table>
 
+				<hr style="margin:0px;">
+
+				<table width="100%">
+
+				<tr class="tabletitle"><td>Total Items: <?php echo $qty; ?></td></tr>
 				<tr class="tabletitle" style="background-color: #EEE;">
 					<td></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Total</h2></td>
@@ -345,13 +340,20 @@ $amount=$cash-$am;
 				</tr>
 
 			</table>
+			<hr style="margin:0px;">
 		</div><!--End Table-->
 
 		<div id="legalcopy">
-			<p class="legal"><strong>Hope you will satisfy and Thank you for being fb relaible customer.</strong> <br>Keeping for new and update designe and verity and in 0308-7900781 and our fb page. 
-			</p>
+			<!-- <p class="legal"> -->
+			<ul>
+			<li>Hope you will satisfy and Thank you for being fb relaible customer. </li>
+			<li>Keeping for new and update design and verity.</li> 
+			<li>Add in 0308-7900781 and our fb page.</li> 
+			</ul>
+			<!-- </p> -->
 		</div>
+		<hr>
+		<div style="font-size: 1em; text-align:center;"> Design & Developed By <br> <img src="../atlogo.png" width="65px" height="15px"><br> +92306 - 4798395 </div>
 
 	</div><!--End InvoiceBot-->
   </div><!--End Invoice-->
-

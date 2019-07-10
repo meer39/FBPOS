@@ -26,7 +26,7 @@
 							$discount->execute();
 							$discount = $discount->fetch();
 						?>
-						<input type="text" name="discount" value="<?php echo $discount['discount']; ?>" autocomplete="off" class="form-control"/>
+						<input type="text" name="discount" value="<?php echo $discount['discount']; ?>" autocomplete="off" class="form-control" readonly/>
 					</div>
 					<div class="col-sm-2">
 						<input type="submit" class="btn btn-primary" value="save" style="width: 123px;" />					

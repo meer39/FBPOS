@@ -1,7 +1,7 @@
-<form action="ProductDAO/saveproduct.php" method="post">
+<form action="ProductDAO/saveproduct.php" method="post" class="mt-3">
 	<div id="ac">
 		<div class="form-group">
-			<input type="text" name="code" placeholder="Product Code" class="form-control" required/>
+			<input type="text" name="code" placeholder="Product Code" class="form-control" required autofocus/>
 			<!-- <span>Product Code : </span><input type="text" name="code" /><br> -->
 		</div>
 		<div class="form-group">

@@ -24,9 +24,9 @@ h1{
     line-height: 1.2em;
   }
    
-  #top, #mid,#bot{ /* Targets all id with 'col-' */
+  /* #top, #mid,#bot{ /* Targets all id with 'col-' 
     border-bottom: 1px solid #EEE;
-  }
+  } */
   
   #top{min-height: 100px;}
   #mid{min-height: 80px;} 
