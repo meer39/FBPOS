@@ -18,22 +18,22 @@
 	</thead>
 	<tbody>
 		
-			<?php
-				include('../connect.php');
-				$result = $db->prepare("SELECT * FROM purchases ORDER BY transaction_id DESC");
-				$result->execute();
-				for($i=0; $row = $result->fetch(); $i++){
-			?>
-			<tr class="record">
-			<td><?php echo $row['invoice_number']; ?></td>
-			<td><?php echo $row['date']; ?></td>
-			<td><?php echo $row['suplier']; ?></td>
-			<td><?php echo $row['remarks']; ?></td>
-			<td><a rel="facebox" href="view_purchases_list.php?iv=<?php echo $row['invoice_number']; ?>"> View </a> | <a href="#" id="<?php echo $row['transaction_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
-			</tr>
-			<?php
-				}
-			?>
+		<?php
+			include('../connect.php');
+			$result = $db->prepare("SELECT * FROM purchases ORDER BY transaction_id DESC");
+			$result->execute();
+			for($i=0; $row = $result->fetch(); $i++){
+		?>
+		<tr class="record">
+		<td><?php echo $row['invoice_number']; ?></td>
+		<td><?php echo $row['date']; ?></td>
+		<td><?php echo $row['suplier']; ?></td>
+		<td><?php echo $row['remarks']; ?></td>
+		<td><a rel="facebox" href="view_purchases_list.php?iv=<?php echo $row['invoice_number']; ?>"> View </a> | <a href="#" id="<?php echo $row['transaction_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
+		</tr>
+		<?php
+			}
+		?>
 		
 	</tbody>
 </table>
