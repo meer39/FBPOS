@@ -49,19 +49,61 @@ if($position=='cashier') {
 }
 if($position=='admin') {
 ?>
-<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Cash</a>
-<a rel="facebox" href="Forms/saleReturnForm.php">Sale Return</a>
-<!-- <a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>">Credit</a> -->
-<a href="products.php">Products</a>
-<a href="purchaseslist.php">Purchases</a>
-<a href="purchaseReturn.php">Purchases Return</a>
-<a href="customer.php">Customers</a>
-<a href="supplier.php">Suppliers</a>
-<a href="salesreport.php?d1=0&d2=0">Sales Report</a>
-<!-- <a href="accountreceivables.php?d1=0&d2=0">Accounts Receivable Report</a> -->
+<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>" class="card mb-4 py-3" style="width: 20rem;">
+  	<div class="card-body">
+    	<h5 class="card-title">Cash</h5>
+	</div>
+</a>
+<a rel="facebox" href="Forms/saleReturnForm.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Sales Return</h5>
+	</div>
+</a>
+
+<a href="products.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Products</h5>
+	</div>
+</a>
+<a href="purchaseslist.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Purchases</h5>
+	</div>
+</a>
+<a href="purchaseReturn.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Purchase Return</h5>
+	</div>
+</a>
+<a href="customer.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Customers</h5>
+	</div>
+</a>
+<a href="supplier.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Suppliers</h5>
+	</div>
+</a>
+<a href="salesreport.php?d1=0&d2=0" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Sales Report</h5>
+	</div>
+</a>
+<a rel="facebox" href="select_customer.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Customer Ledger</h5>
+	</div>
+</a>
+<a href="../index.php" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Logout</h5>
+	</div>
+</a>
+
 <!-- <a href="collection.php?d1=0&d2=0">Collection Report</a> -->
-<a rel="facebox" href="select_customer.php">Customer Ledger</a>
-<a href="../index.php">Logout</a>
+<!-- <a href="accountreceivables.php?d1=0&d2=0">Accounts Receivable Report</a> -->
+<!-- <a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>">Credit</a> -->
 <?php
 }
 ?>

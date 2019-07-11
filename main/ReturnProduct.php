@@ -14,10 +14,10 @@ try{
     $returnAmount = ($amount / $qty) * $rtnQty;
 
     // echo $returnAmount;
- 
-    $return = "INSERT INTO return_product (invoice, product_code, amount, rtnQty) VALUES (:invoice, :product, :amount, :rtnQty)";
+    session_start();
+    $return = "INSERT INTO return_product (invoice, product_code, amount, rtnQty, user) VALUES (:invoice, :product, :amount, :rtnQty, :user)";
     $return = $db->prepare($return);    
-    $return->execute(array(':invoice'=>$invoice, ':product'=>$product, ':amount'=>$returnAmount, ':rtnQty'=>$rtnQty));
+    $return->execute(array(':invoice'=>$invoice, ':product'=>$product, ':amount'=>$returnAmount, ':rtnQty'=>$rtnQty, ':user'=>$_SESSION['SESS_LAST_NAME']));
 
     $updateSales = "UPDATE sales SET amount = amount-:rtnAmount WHERE invoice_number = :invoice";
     $updateSales = $db->prepare($updateSales);

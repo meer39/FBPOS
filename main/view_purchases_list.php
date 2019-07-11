@@ -1,5 +1,5 @@
-<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
-<table id="resultTable" data-responsive="table" style="text-align: left;">
+<link href="bs/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+<table id="resultTable" class="table table-hover mt-3">
 	<thead>
 		<tr>
 			<th width="5%"> Name </th>

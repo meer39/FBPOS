@@ -8,29 +8,30 @@
 	unset($_SESSION['SESS_LAST_NAME']);
 ?>
 <html>
-<head>
-<title>
-fb - Fashion Botique
-</title>
-<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<div id="header" style="text-align: center; font-size: 20px; margin: 85px 0px -74px;"> fb - Fashion Botique
-</div>
-<div id="loginform">
-<?php
-if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
-	foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-		echo '<div style="color: red; text-align: center;">',$msg,'</div><br>'; 
-	}
-	unset($_SESSION['ERRMSG_ARR']);
-}
-?>
-<form action="login.php" method="post">
-<span>Username :</span><input type="text" name="username" /><br><br>
-<span>Password :</span><input type="password" name="password" /><br><br>
-<span>&nbsp;</span><input id="btn" type="submit" value="Login" />
-</form>
-</div>
-</body>
+	<head>
+		<title> fb - Fashion Botique </title>
+		<link href="main/bs/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+	</head>
+	<body style="width: 50%; margin: 100px auto">
+	<h1 class="display-4 text-center"> fb - Fashion Botique</h1>
+		<div id="loginform">
+			<?php
+				if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
+					foreach($_SESSION['ERRMSG_ARR'] as $msg) {
+						echo '<div style="color: red; text-align: center;">',$msg,'</div><br>'; 
+					}
+					unset($_SESSION['ERRMSG_ARR']);
+				}
+			?>
+			<form action="login.php" method="post">
+				<div class="form-group">
+					<input type="text" name="username" class="form-control" placeholder="Username" required />
+				</div>
+				<div class="form-group">
+					<input type="password" name="password" class="form-control" placeholder="Password" required/>
+				</div>
+				<input class="btn btn-success btn-submit float-right" type="submit" value="Login" />
+			</form>
+		</div>
+	</body>
 </html>
