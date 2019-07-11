@@ -5,7 +5,8 @@
 <div style="margin-top: -19px; margin-bottom: 21px;">
 	<a class="btn btn-danger" href="index.php">Back</a>
 </div>
-<input type="text" name="filter" value="" id="filter" class="form-control" placeholder="Search Product..." autocomplete="off" /><a rel="facebox" class="btn btn-success float-right" href="Forms/addProductForm.php">Add Product</a><br><br>
+<input type="text" name="filter" value="" id="filter" class="form-control" placeholder="Search Product..." autocomplete="off" />
+<a rel="facebox" class="btn btn-success float-right" href="Forms/addProductForm.php">Add Product</a><br><br>
 <table id="resultTable" data-responsive="table" class="table table-hover table-bordered">
 	<thead>
 		<tr>

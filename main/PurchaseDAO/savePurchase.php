@@ -9,7 +9,7 @@ $d = $_POST['remarks'];
 $sql = "INSERT INTO purchases (invoice_number,date,suplier,remarks) VALUES (:a,:b,:c,:d)";
 $q = $db->prepare($sql);
 $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d));
-header("location: ../purchasesportal.php?iv=$a");
+header("location: ../purchasesportal.php?iv=$a&supplier=$c");
 
 
 ?>

@@ -17,7 +17,7 @@
 					$result->execute();
 					for($i=0; $row = $result->fetch(); $i++){
 				?>
-					<option><?php echo $row['suplier_name']; ?></option>
+					<option value="<?php echo $row['suplier_name']; ?>"><?php echo $row['suplier_name']; ?></option>
 				<?php
 				}
 				?>

@@ -1,11 +1,10 @@
 <?php
 	//Start session
 	session_start();
-	
-	//Unset the variables stored in session
-	unset($_SESSION['SESS_MEMBER_ID']);
-	unset($_SESSION['SESS_FIRST_NAME']);
-	unset($_SESSION['SESS_LAST_NAME']);
+	if(isset($_SESSION['SESS_MEMBER_ID']) && isset($_SESSION['SESS_FIRST_NAME']) && isset($_SESSION['SESS_LAST_NAME']))
+	{
+		header('location: main/index.php');
+	}
 ?>
 <html>
 	<head>
@@ -20,6 +19,7 @@
 					foreach($_SESSION['ERRMSG_ARR'] as $msg) {
 						echo '<div style="color: red; text-align: center;">',$msg,'</div><br>'; 
 					}
+					
 					unset($_SESSION['ERRMSG_ARR']);
 				}
 			?>

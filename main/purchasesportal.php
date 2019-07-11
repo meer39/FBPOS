@@ -28,8 +28,9 @@ function Clickheretoprint()
 			<select name="product" style="width: 600px;" class="form-control">
 				<?php
 				include('../connect.php');
-				$result = $db->prepare("SELECT * FROM products");
-					$result->bindParam(':userid', $res);
+				$result = $db->prepare("SELECT * FROM products WHERE supplier = :supplier");
+					// $result->bindParam(':userid', $res);
+					$result->bindParam(':supplier', $_GET['supplier']);
 					$result->execute();
 					for($i=0; $row = $result->fetch(); $i++){
 				?>

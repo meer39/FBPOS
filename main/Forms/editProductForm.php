@@ -53,10 +53,10 @@
             ?>
 		</select>
 		</div>
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<input type="text" name="qty" placeholder="Quantity" class="form-control" required value="<?php echo $row['qty']; ?>"/>		
-			<!-- <span>Qty : </span><input type="text" name="qty" /><br> -->
-		</div>
+			<span>Qty : </span><input type="text" name="qty" /><br>
+		</div> -->
 		<input type="submit" value="save"  class="btn btn-primary float-right"/>
 	</div>
 </form>

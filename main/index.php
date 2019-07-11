@@ -70,7 +70,7 @@ if($position=='admin') {
     	<h5 class="card-title">Purchases</h5>
 	</div>
 </a>
-<a href="purchaseReturn.php" class="card mb-4 py-3" style="width: 20rem;">
+<a href="returnPurchase.php" class="card mb-4 py-3" style="width: 20rem;">
 	<div class="card-body">	
     	<h5 class="card-title">Purchase Return</h5>
 	</div>
@@ -95,7 +95,7 @@ if($position=='admin') {
     	<h5 class="card-title">Customer Ledger</h5>
 	</div>
 </a>
-<a href="../index.php" class="card mb-4 py-3" style="width: 20rem;">
+<a href="../logout.php" class="card mb-4 py-3" style="width: 20rem;">
 	<div class="card-body">	
     	<h5 class="card-title">Logout</h5>
 	</div>

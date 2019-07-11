@@ -10,7 +10,6 @@
 	<thead>
 		<tr>
 			<th width="20%"> Invoice Number </th>
-			<th width="20%"> Product Code </th>
 			<th width="20%"> Product Name </th>
 			<th width="10%"> Qty </th>
 			<th width="10%"> Price </th>
@@ -23,8 +22,8 @@
 		
 			<?php
 				include('../connect.php');
-                $result = $db->prepare("SELECT * FROM sales_order WHERE invoice = :invoice");
-                $result->bindParam(':invoice', $_GET['invoice']);
+                $result = $db->prepare("SELECT * FROM purchaseS_item WHERE invoice = '123123'");
+                // $result->bindParam(':invoice', 123123);
 				$result->execute();
 				for($i=0; $row = $result->fetch(); $i++){
 			?>
@@ -37,7 +36,7 @@
                 <td><?php echo $row['discount']; ?></td>
                 <td><?php echo $row['amount']; ?></td>
                 <?php if($row['qty'] > 0){ ?>
-                <td><a rel="facebox" href="Forms/returnProductForm.php?invoice=<?php echo $row['invoice'] ?>&product=<?php echo $row['product'] ?>&amount=<?php echo $row['amount'] ?>&qty=<?php echo $row['qty'] ?>"> Return </a></td>
+                <td><a rel="facebox" href="Forms/returnProductForm.php?invoice=<?php echo $row['invoice'] ?>&product=<?php echo $row['product'] ?>&amount=<?php echo $row['amount'] ?>&qty=<?php echo $row['qty'] ?>"> Return </a>
                 <?php } ?>
 			</tr>
 			<?php
