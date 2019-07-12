@@ -231,17 +231,19 @@ $amount=$cash-$am;
 
 <div id="invoice-POS">
     
-    <center id="top" style="margin: 10px;">
+    <center id="top" style="margin: 0px;">
       <div class="logo">
-		  <img src="../logo.png" alt="logo" width="100px" height="60px"/>
+		  <img src="../logo.png" alt="logo" width="150px" height="60px"/>
+		<div style="margin: 0px; font-size:.5em;">Project By Liaqat Garments - Since 1985</div>
 	  </div>
     </center><!--End InvoiceTop-->
     
     <div id="mid">
       <div class="info">
         <p> 
-            College Road Opposite Noor Masjid, Daska
-            03064798395<br>
+            College Road Opposite Noor Mosque, Daska<br>
+            0347-6190458<br>
+			0300-6437725
         </p>
 	  </div>
 		<div style="font-size: 1em; text-align: center; margin-bottom:5px;"><?php echo date("d/m/Y"); ?> - <?php echo date("h:i:a"); ?></div>
@@ -256,6 +258,7 @@ $amount=$cash-$am;
 			
 				<tr class="tabletitle" style="background-color: #EEE;">
 					<td class="item" style="font-size: .5em; width: 40mm;"><h2>Item</h2></td>
+					<td class="Hours" style="font-size: .5em;"><h2>Discount</h2></td>
 					<td class="Hours" style="font-size: .5em;"><h2>Qty</h2></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Sub Total</h2></td>
 				</tr>
@@ -272,9 +275,11 @@ $amount=$cash-$am;
 
 				<tr class="service">
 					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php echo $row['name'] ?></p></td>
+					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php echo $row['discount'] ?>%</p></td>
 					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php echo $row['qty'] ?></p></td>
-					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php	echo $row['price']*$row['qty']; ?></p></td>
-					<?php  $productPrice = $productPrice + ($row['price']*$row['qty']); $qty += $row['qty'] ?>
+					<?php $discountPrice = $row['price'] - ($row['price'] * $row['discount'] / 100); ?>
+					<td class="tableitem"><p class="itemtext" style="font-size: 1em;"><?php	echo $discountPrice*$row['qty']; ?></p></td>
+					<?php  $productPrice = $productPrice + ($discountPrice*$row['qty']); $qty += $row['qty'] ?>
 				</tr>
 
 				<?php } ?>
@@ -291,7 +296,7 @@ $amount=$cash-$am;
 					<td class="payment" style="font-size: .5em;"><h2><?php echo $productPrice; ?></h2></td>
 				</tr>
 
-				<tr class="tabletitle" style="background-color: #EEE;">
+				<!-- <tr class="tabletitle" style="background-color: #EEE;">
 					<td></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Discount</h2></td>
 					<?php
@@ -300,7 +305,7 @@ $amount=$cash-$am;
 						$discount = $discount->fetch();
 					?>
 					<td class="payment" style="font-size: .5em;"><h2><?php echo formatMoney($discount['discount'], true) ?></h2></td>
-				</tr>
+				</tr> -->
 				<tr class="tabletitle" style="background-color: #EEE;">
 					<td></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Price</h2></td>

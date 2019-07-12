@@ -101,6 +101,7 @@ background-repeat:no-repeat;
 <input type="hidden" name="amount" value="<?php echo $_GET['total']; ?>" />
 <input type="hidden" name="ptype" value="<?php echo $_GET['pt']; ?>" />
 <input type="hidden" name="cashier" value="<?php echo $_GET['cashier']; ?>" />
+<input type="hidden" name="discount" value="<?php echo $_GET['discount']; ?>" />
 <input type="text" size="25" value="" name="cname" id="country" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter Customer Name" style="width: 268px;" /><br><br>
      
       <div class="suggestionsBox" id="suggestions" style="display: none;">

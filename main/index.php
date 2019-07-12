@@ -51,7 +51,7 @@ if($position=='admin') {
 ?>
 <a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>" class="card mb-4 py-3" style="width: 20rem;">
   	<div class="card-body">
-    	<h5 class="card-title">Cash</h5>
+    	<h5 class="card-title">Invoice</h5>
 	</div>
 </a>
 <a rel="facebox" href="Forms/saleReturnForm.php" class="card mb-4 py-3" style="width: 20rem;">
@@ -70,7 +70,7 @@ if($position=='admin') {
     	<h5 class="card-title">Purchases</h5>
 	</div>
 </a>
-<a href="returnPurchase.php" class="card mb-4 py-3" style="width: 20rem;">
+<a rel="facebox" href="Forms/PurchaseInvoiceForm.php" class="card mb-4 py-3" style="width: 20rem;">
 	<div class="card-body">	
     	<h5 class="card-title">Purchase Return</h5>
 	</div>

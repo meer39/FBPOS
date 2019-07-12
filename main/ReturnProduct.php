@@ -15,9 +15,9 @@ try{
 
     // echo $returnAmount;
     session_start();
-    $return = "INSERT INTO return_product (invoice, product_code, amount, rtnQty, user) VALUES (:invoice, :product, :amount, :rtnQty, :user)";
+    $return = "INSERT INTO return_product (invoice, product_code, amount, rtnQty, user, type) VALUES (:invoice, :product, :amount, :rtnQty, :user, :type)";
     $return = $db->prepare($return);    
-    $return->execute(array(':invoice'=>$invoice, ':product'=>$product, ':amount'=>$returnAmount, ':rtnQty'=>$rtnQty, ':user'=>$_SESSION['SESS_LAST_NAME']));
+    $return->execute(array(':invoice'=>$invoice, ':product'=>$product, ':amount'=>$returnAmount, ':rtnQty'=>$rtnQty, ':user'=>$_SESSION['SESS_LAST_NAME'], ':type'=>'sale'));
 
     $updateSales = "UPDATE sales SET amount = amount-:rtnAmount WHERE invoice_number = :invoice";
     $updateSales = $db->prepare($updateSales);
@@ -40,7 +40,7 @@ catch(Exception $e){
     //Print out the error message.
     echo $e->getMessage();
     //Rollback the transaction.
-    $pdo->rollBack();
+    $db->rollBack();
 }
 
 ?>
