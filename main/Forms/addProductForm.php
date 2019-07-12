@@ -10,11 +10,11 @@
 			<!-- <span>Product Name : </span><input type="text" name="name" /><br> -->
 		</div>
 		<div class="form-group">
-			<input type="text" name="cost" placeholder="Product Cast" class="form-control" required />
+			<input type="text" name="cost" placeholder="Purchase Cast" class="form-control" required />
 			<!-- <span>Cost : </span><input type="text" name="cost" /><br> -->
 		</div>
 		<div class="form-group">
-			<input type="text" name="price" placeholder="Product Price" class="form-control" required />
+			<input type="text" name="price" placeholder="Sale Price" class="form-control" required />
 			<!-- <span>Price : </span><input type="text" name="price" /><br> -->
 		</div>
 		<div class="form-group">

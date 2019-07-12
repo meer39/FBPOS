@@ -234,7 +234,7 @@ $amount=$cash-$am;
     <center id="top" style="margin: 0px;">
       <div class="logo">
 		  <img src="../logo.png" alt="logo" width="150px" height="60px"/>
-		<div style="margin: 0px; font-size:.5em;">Project By Liaqat Garments - Since 1985</div>
+		<div style="margin: 0px; font-size: 1em;">Project By Liaqat Garments - Since 1985</div>
 	  </div>
     </center><!--End InvoiceTop-->
     
@@ -351,9 +351,10 @@ $amount=$cash-$am;
 		<div id="legalcopy">
 			<!-- <p class="legal"> -->
 			<ul>
-			<li>Hope you will satisfy and Thank you for being fb relaible customer. </li>
-			<li>Keeping for new and update design and verity.</li> 
-			<li>Add in 0308-7900781 and our fb page.</li> 
+			<li>Thanks Your Shopping and Your Satisfaction is our Proud.</li>
+			<li>Keep Follow For Update Collection and Unique Designe 0300-6437725.</li> 
+			<li>Show your Bill While Return Within Three Days.</li> 
+			<li>Exchange is Possible Only.</li>
 			</ul>
 			<!-- </p> -->
 		</div>
