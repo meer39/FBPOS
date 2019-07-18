@@ -60,7 +60,9 @@
 			<td><?php echo $row['size'] ?></td>
 			<td><?php echo $row['color'] ?></td>
 			<td><?php echo $row['category'] ?></td>
-			<td><a rel="facebox" href="Forms/editProductForm.php?id=<?php echo $row['product_id']; ?>"> Edit </a> | <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click To Delete">Delete</a></td>
+			<td><a rel="facebox" href="Forms/editProductForm.php?id=<?php echo $row['product_id']; ?>"> Edit </a> 
+			| <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click To Delete">Delete</a> 
+			| <a rel="facebox" href="Forms/BarcodePrintForm.php?code=<?php echo $row['product_code']; ?>&name=<?php echo $row['product_name'] ?>&price=<?php echo $row['price'] ?>">Generate Barcode</a></td>
 			</tr>
 			<?php
 				}

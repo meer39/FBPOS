@@ -41,7 +41,7 @@ $finalcode='RS-'.createRandomPassword();
 <?php
 $position=$_SESSION['SESS_LAST_NAME'];
 if($position=='cashier') {
-?>
+	?>
 <a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Cash</a>
 <a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>">Credit</a>
 <a href="../index.php">Logout</a>
@@ -51,9 +51,16 @@ if($position=='admin') {
 ?>
 <a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>" class="card mb-4 py-3" style="width: 20rem;">
   	<div class="card-body">
-    	<h5 class="card-title">Invoice</h5>
+    	<h5 class="card-title">Cash Invoice</h5>
 	</div>
 </a>
+
+<a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>" class="card mb-4 py-3" style="width: 20rem;">
+	<div class="card-body">	
+    	<h5 class="card-title">Credit Invoice</h5>
+	</div>
+</a>
+
 <a rel="facebox" href="Forms/saleReturnForm.php" class="card mb-4 py-3" style="width: 20rem;">
 	<div class="card-body">	
     	<h5 class="card-title">Sales Return</h5>
@@ -103,7 +110,6 @@ if($position=='admin') {
 
 <!-- <a href="collection.php?d1=0&d2=0">Collection Report</a> -->
 <!-- <a href="accountreceivables.php?d1=0&d2=0">Accounts Receivable Report</a> -->
-<!-- <a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>">Credit</a> -->
 <?php
 }
 ?>
