@@ -246,7 +246,7 @@ $amount=$cash-$am;
 			0300-6437725
         </p>
 	  </div>
-		<div style="font-size: 1em; text-align: center; margin-bottom:5px;"><?php echo date("d/m/Y"); ?> - <?php echo date("h:i:a"); ?></div>
+		<div style="font-size: 1em; text-align: center; margin-bottom:5px;"><?php date_default_timezone_set("Asia/Karachi"); echo date("F j, Y, g:i a");?></div>
 		<span style="font-size: 1em;"><strong>Receipt No. </strong><?php echo $invoice; ?></span>
 		<hr style="margin:0px;">	  
     </div><!--End Invoice Mid-->
@@ -290,13 +290,13 @@ $amount=$cash-$am;
 				<table width="100%">
 
 				<tr class="tabletitle"><td>Total Items: <?php echo $qty; ?></td></tr>
-				<tr class="tabletitle" style="background-color: #EEE;">
+				<!--<tr class="tabletitle" style="background-color: #EEE;">
 					<td></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Total</h2></td>
 					<td class="payment" style="font-size: .5em;"><h2><?php echo $productPrice; ?></h2></td>
 				</tr>
 
-				<!-- <tr class="tabletitle" style="background-color: #EEE;">
+				 <tr class="tabletitle" style="background-color: #EEE;">
 					<td></td>
 					<td class="Rate" style="font-size: .5em;"><h2>Discount</h2></td>
 					<?php
@@ -308,7 +308,7 @@ $amount=$cash-$am;
 				</tr> -->
 				<tr class="tabletitle" style="background-color: #EEE;">
 					<td></td>
-					<td class="Rate" style="font-size: .5em;"><h2>Price</h2></td>
+					<td class="Rate" style="font-size: .5em;"><h2>Total</h2></td>
 					<?php $productPrice = $productPrice - ($productPrice * $discount['discount'] / 100) ?>
 					<td class="payment" style="font-size: .5em;"><h2><?php echo formatMoney($productPrice, true) ?></h2></td>
 				</tr>

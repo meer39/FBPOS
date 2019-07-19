@@ -1,8 +1,17 @@
 <form action="ProductDAO/saveproduct.php" method="post" class="mt-3">
 	<div id="ac">
 		<div class="form-group">
-			<?php $no = rand(0, 999999999999); $no = str_pad($no, 12, "0", STR_PAD_LEFT); ?>
-			<input type="text" name="code" placeholder="Product Code" class="form-control" value="<?php echo $no ?>" required readonly/>
+			<?php //$no = rand(0, 999999999999); $no = str_pad($no, 12, "0", STR_PAD_LEFT);
+			function generateRandomString($length = 8) {
+				$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+				$charactersLength = strlen($characters);
+				$randomString = '';
+				for ($i = 0; $i < $length; $i++) {
+					$randomString .= $characters[rand(0, $charactersLength - 1)];
+				}
+				return $randomString;
+			} ?>
+			<input type="text" name="code" placeholder="Product Code" class="form-control" value="<?php echo generateRandomString() ?>" required readonly/>
 			<!-- <span>Product Code : </span><input type="text" name="code" /><br> -->
 		</div>
 		<div class="form-group">

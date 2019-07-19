@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2019 at 03:57 PM
+-- Generation Time: Jul 19, 2019 at 09:06 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -105,16 +105,18 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `cost`, `price`, `supplier`, `qty`, `size`, `color`, `category`) VALUES
-(6, 'Ef0816801719', 'Trouser', '400', '500', 'Bareeze', 3, 'Small', 'White', 'Coton'),
+(6, 'Ef0816801719', 'Trouser', '400', '500', 'Bareeze', 0, 'Small', 'White', 'Coton'),
 (15, '350044961046', 'Chapal', '1400', '1600', 'Sapphire', 18, '7', 'Brown', 'Footwear'),
 (17, '049769790711', 'Sandal', '1000', '1500', 'Bareeze', 27, '8', 'Black', 'Foot Wear'),
 (18, '649081685468', 'Jacket', '1200', '1500', 'Sapphire', 5, 'M', 'Blue', 'Upper'),
 (22, '538277464192', 'Kurti', '600', '1000', 'Bareeze', 10, 'Small', 'Purple', 'female'),
 (23, '850977888937', 'Scarf', '300', '400', 'Khaadi', 4, '', 'Red', 'Female'),
-(24, '722626310936', 'shirt', '1000', '1500', 'Sapphire', 48, '28', 'green', 'a'),
+(24, '722626310936', 'shirt', '1000', '1500', 'Sapphire', 47, '28', 'green', 'a'),
 (25, '724967165630', 'Cap', '200', '300', 'Bareeze', 9, 'small', 'Black', 'b'),
 (26, '010412034342', 'Scurt', '1000', '1200', 'Ahmad', 14, 'Small', 'Blue', 'A'),
-(27, '410977468204', 'SHORT SHIRT', '1000', '1999', 'Khaadi', 7, 'Large', 'Black', 'Coton');
+(27, '410977468204', 'SHORT SHIRT', '1000', '1999', 'Khaadi', 7, 'Large', 'Black', 'Coton'),
+(28, '614272547517', 'Hat', '500', '600', 'Sapphire', 0, 'small', 'gray', 'B'),
+(30, 'Pv6VBHwA', 'belt', '200', '300', 'Sapphire', 8, 'universal', 'Brown', 'All');
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,8 @@ INSERT INTO `purchases` (`transaction_id`, `invoice_number`, `date`, `suplier`, 
 (18, '87698798', '2019-07-12', 'Ahmad', 'thankx'),
 (19, '5768970', '2019-07-12', 'Ahmad', ''),
 (20, '887', '2019-07-12', 'Ahmad', ''),
-(21, '123123', '2019-07-12', 'Khaadi', 'thankx');
+(21, '123123', '2019-07-12', 'Khaadi', 'thankx'),
+(22, '567890', '2019-07-19', 'Sapphire', '');
 
 -- --------------------------------------------------------
 
@@ -181,7 +184,8 @@ INSERT INTO `purchases_item` (`id`, `name`, `qty`, `cost`, `invoice`) VALUES
 (13, '010412034342', 10, '12000', '87698798'),
 (14, '010412034342', 5, '6000', '5768970'),
 (15, '010412034342', 5, '6000', '887'),
-(16, '410977468204', 12, '23988', '123123');
+(16, '410977468204', 12, '23988', '123123'),
+(17, 'Pv6VBHwA', 10, '3000', '567890');
 
 -- --------------------------------------------------------
 
@@ -290,7 +294,11 @@ INSERT INTO `sales` (`transaction_id`, `invoice_number`, `cashier`, `date`, `typ
 (50, 'RS-329932', 'Admin', '07/12/2019', 'cash', '570', '600', 'Tanveer Arshad', ''),
 (51, 'RS-000662', 'Admin', '07/12/2019', 'cash', '3175', '5000', '', ''),
 (52, 'RS-83360343', 'Admin', '07/12/2019', 'cash', '6255', '7000', 'OMER', ''),
-(53, 'RS-32300803', 'Admin', '07/12/2019', 'cash', '10220.6', '15000', 'ALI', '');
+(53, 'RS-32300803', 'Admin', '07/12/2019', 'cash', '10220.6', '15000', 'ALI', ''),
+(54, 'RS-232092', 'Admin', '07/18/2019', 'cash', '500', '500', '', ''),
+(55, 'RS-30322233', 'Admin', '07/18/2019', 'credit', '500', '7/20/2019', 'Tanveer Arshad', ''),
+(56, 'RS-327233', 'Admin', '07/18/2019', 'cash', '285', '300', 'Tanveer Arshad', ''),
+(57, 'RS-6233', 'Admin', '07/18/2019', 'credit', '2135', '2019-07-20', 'Tanveer Arshad', '');
 
 -- --------------------------------------------------------
 
@@ -397,7 +405,13 @@ INSERT INTO `sales_order` (`transaction_id`, `invoice`, `product`, `qty`, `amoun
 (118, 'RS-32300803', '410977468204', '5', '8795.6', 'SHORT SHIRT', '1999', '12'),
 (119, 'RS-32300803', '724967165630', '1', '285', 'Cap', '300', '5'),
 (120, 'RS-32300803', '010412034342', '1', '1140', 'Scurt', '1200', '5'),
-(121, 'RS-3320232', 'Ef0816801719', '1', '500', 'Trouser', '500', '0');
+(121, 'RS-3320232', 'Ef0816801719', '1', '500', 'Trouser', '500', '0'),
+(122, 'RS-232092', 'Ef0816801719', '1', '500', 'Trouser', '500', '0'),
+(123, 'RS-30322233', 'Ef0816801719', '1', '500', 'Trouser', '500', '0'),
+(125, 'RS-327233', 'Pv6VBHwA', '1', '285', 'belt', '300', '5'),
+(126, 'RS-6233', 'Pv6VBHwA', '1', '285', 'belt', '300', '5'),
+(127, 'RS-6233', 'Ef0816801719', '1', '500', 'Trouser', '500', '0'),
+(128, 'RS-6233', '722626310936', '1', '1350', 'shirt', '1500', '10');
 
 -- --------------------------------------------------------
 
@@ -540,19 +554,19 @@ ALTER TABLE `discount`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `purchases_item`
 --
 ALTER TABLE `purchases_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `return_product`
@@ -564,13 +578,13 @@ ALTER TABLE `return_product`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT for table `supliers`

@@ -94,7 +94,7 @@ background-repeat:no-repeat;
 </style>	
 </head>
 <body onLoad="document.getElementById('country').focus();">
-<form action="savesales.php" method="post">
+<form action="savesales.php" method="post" class="m-3">
 <div id="ac">
 <input type="hidden" name="date" value="<?php echo date("m/d/Y"); ?>" />
 <input type="hidden" name="invoice" value="<?php echo $_GET['invoice']; ?>" />
@@ -110,7 +110,7 @@ background-repeat:no-repeat;
 <?php
 $asas=$_GET['pt'];
 if($asas=='credit') {
-?><input type="text" name="due" placeholder="Due Date" style="width: 268px; margin-bottom: 15px;" /><br>
+?><input type="date" name="due" placeholder="Due Date" style="width: 268px; margin-bottom: 15px;" /><br>
 <?php
 }
 if($asas=='cash') {
