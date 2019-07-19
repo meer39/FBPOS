@@ -33,12 +33,10 @@
 
 <?php
 
-include('picqer/brgn/src/BarcodeGenerator.php');
-include('picqer/brgn/src/BarcodeGeneratorPNG.php');
-include('picqer/brgn/src/BarcodeGeneratorSVG.php');
+include('src/BarcodeGenerator.php');
+include('src/BarcodeGeneratorPNG.php');
 
 $generator = new \Picqer\Barcode\BarcodeGeneratorPNG();
-$generatorSVG = new Picqer\Barcode\BarcodeGeneratorSVG();
 
 $code = $_GET['code'];
 $name = $_GET['name'];
@@ -46,8 +44,7 @@ $price = $_GET['price'];
 $BRQTY = $_GET['BRQTY'];
 
 echo 'Fashion Boutique (fb)<br>';
-echo  $generatorSVG->getBarcode($code, $generatorSVG::TYPE_EAN_13);
-// echo '<img src="data:image/png;base64,' . base64_encode($generator->getBarcode($code, $generator::TYPE_CODE_128)) . '"></br>';
+echo '<img src="data:image/png;base64,' . base64_encode($generator->getBarcode($code, $generator::TYPE_CODE_128)) . '"></br>';
 echo $code.'<br>';
 echo '<b>Price: '.$price.'</b></br>';
  ?>
